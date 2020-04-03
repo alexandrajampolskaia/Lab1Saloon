@@ -1,0 +1,49 @@
+<div class="container">
+	  <h1>Angular Saloon</h1>
+	  <h3>
+		{{ welFirst }}
+	  </h3><br>
+	
+
+	  <form [hidden]="submitteddd" (ngSubmit)="onSubmit()" #nameForm="ngForm">
+
+		<div class="form-group">
+		  <label for="firstName">I'm </label> &nbsp;
+		  <input style="text-align: center" type="text" class="form-control" id="firstName"
+				 [(ngModel)]="model.firstName" name="firstName" placeholder="First name"> &nbsp;
+
+  
+		  <label for="lastName"></label>
+		  <input style="text-align: center" type="text" class="form-control" id="lastName"
+				 [(ngModel)]="model.lastName" name="lastName" placeholder="Last name"> &nbsp;
+				 
+				 <button type="submit">Nice to meet you!</button>
+		</div>
+
+	  </form>
+	  
+	  <div [hidden]="!submitted">
+	  <h3>Alright, {{ model.firstName }} {{ model.lastName }}, what can I do for you? </h3>
+	  <button type="submit" (click)=toggle()>Get me a drink!</button> 
+	</div>
+
+	</div>
+  	
+
+	<div [hidden]="!submittedd"> 
+	  <app-beverage [message]="message" (choosenDrink)="handleTheSelected($event)" (onSaveDrink)="addNewDrink($event)"></app-beverage>
+	</div> 
+
+	<h3>{{ drinkWithText }}</h3>
+
+
+	<app-theusual [message]="message" (choosenDrink)="handleTheSelected2($event)" (onSaveDrink)="addNewDrink($event)"></app-theusual> 
+
+
+	<h3>{{ newDrink }}</h3>
+
+	<app-forgetme></app-forgetme>
+
+	
+  
+

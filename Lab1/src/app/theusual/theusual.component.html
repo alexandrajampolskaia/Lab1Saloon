@@ -1,0 +1,31 @@
+
+<div [hidden]="!submittedd">
+	<h2>{{ lsName }}</h2>
+	<button (click)="getDrinkLS()">The Usual?</button> &nbsp;
+	<button (click)="getBeverageList()" (click)="toggle()"> Another Drink! </button> &nbsp;
+	<br> <h3>{{ lsDrink }}</h3> 
+</div>
+
+
+<div class="bevlist" [hidden]="!submitted">
+	<p>{{ message }}</p> 
+	<div class="beveragesList" *ngFor="let beverage of beverageList">
+		<div class="beveragesItem">
+			{{beverage.drink}} 
+				<button type="submit" (click)="userChoice(beverage)">
+					This one
+				</button>
+
+		</div>
+	</div>
+
+	<br><div>
+		<a>Add new drink to the list</a> &nbsp;
+		<input style="text-align: center" type="text" placeholder="suggested drink"
+			 (keyup)="onKeyUp($event)"/> &nbsp;
+		<button (click)="saveNewDrink()" (click)="getBeverageList()">Add new drink</button>
+	</div>
+</div>
+
+
+	

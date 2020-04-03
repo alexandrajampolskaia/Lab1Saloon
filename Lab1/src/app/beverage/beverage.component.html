@@ -1,0 +1,25 @@
+
+<p>{{ message }}</p>
+
+<div>
+<div class="beveragesList" *ngFor="let beverage of bevList">
+	<div class="beveragesItem">
+		{{beverage.drink}} 
+
+			<button type="submit" (click)="userChoice(beverage)">
+				This one
+			</button>
+	</div>
+
+</div>
+
+<br ><div>
+	<a>Add new drink to the list</a> &nbsp;
+	<input style="text-align: center" type="text" placeholder="suggested drink"
+		 (keyup)="onKeyUp($event)"/> &nbsp;
+	<button (click)="saveNewDrink()" (click)="getBeverageList()">Add new drink</button>
+</div>
+
+</div>
+
+
