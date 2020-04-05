@@ -1,9 +1,11 @@
 
 <div [hidden]="!submittedd">
 	<h2>{{ lsName }}</h2>
-	<button (click)="getDrinkLS()">The Usual?</button> &nbsp;
-	<button (click)="getBeverageList()" (click)="toggle()"> Another Drink! </button> &nbsp;
+	<button [disabled]="clicked" (click)="getDrinkLS()">The Usual?</button> &nbsp;
+	<button [disabled]="clicked" (click)="getBeverageList()" (click)="toggle()"> Another Drink! </button> &nbsp;
 	<br> <h3>{{ lsDrink }}</h3> 
+
+	<button [hidden]="!showThanks" (click)="thanks()">Thanks!</button>
 </div>
 
 
@@ -15,7 +17,7 @@
 				<button type="submit" (click)="userChoice(beverage)">
 					This one
 				</button>
-
+				<button [hidden]="!showThanks" (click)="thanks()">Thanks!</button>
 		</div>
 	</div>
 

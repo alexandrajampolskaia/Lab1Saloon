@@ -25,6 +25,8 @@ lsText: string = "";
 selectedChoise: string = "";
 welFirst: string = "";
 newDrink: string = "";
+showThanks = false;
+showThankss = false;
 
 
 toggle() {
@@ -51,21 +53,26 @@ hideNameInput(){
 		} else
 		this.submitteddd = true;
 }
-
-
-handleTheSelected(theSelectedDrink){
+ 
+handleTheSelected(theSelectedDrink){ 
 	this.selectedDrink = theSelectedDrink.drink;
-	this.drinkWithText = "Awesome " + this.selectedDrink + " coming right up!"
+	this.drinkWithText = "One " + this.selectedDrink + ", coming right up!"
+	this.showThanks = true;
+}
+
+thanks(): void {
+	window.location.reload();
 }
 
 handleTheSelected2(theSelectedDrink){
 	this.selectedDrink = theSelectedDrink.drink;
-	this.newDrink = this.selectedDrink + " is your new drink!"
+	this.newDrink = "Your new drink " + this.selectedDrink + " is coming right up!"
+	this.showThankss = true;
 }
 
 welcomeFirst(){
 	if(localStorage.getItem('name') === null) {
-		console.log(this.welFirst = "I haven't seen your face around here before, what's your name?");
+		console.log(this.welFirst = "Howdy, stranger! Haven't seen your face around here before. What's your name?");
 		} else
 		console.log(this.welFirst = "");
 }

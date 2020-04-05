@@ -10,7 +10,7 @@ import { VisitorService } from '../visitor.service';
 export class BeverageComponent implements OnInit {
 @Input() message: string;
 bev: Beverage; 
-bevList=[]
+bevList=[];
 
 
   constructor(private service: VisitorService) { }
@@ -28,6 +28,10 @@ bevList=[]
 		this.choosenDrink.emit(selectedChoise)
 		console.log("Selected drink" + selectedChoise);
 	}
+
+	thanks(): void {
+		window.location.reload();
+	} 
 
 	bevListt: Beverage[]=[];
 	submitted = false;

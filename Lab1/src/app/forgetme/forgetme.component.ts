@@ -8,28 +8,36 @@ import { Beverage } from '../beverage';
   templateUrl: './forgetme.component.html',
   styleUrls: ['./forgetme.component.css']
 })
-export class ForgetmeComponent implements OnInit {
+export class ForgetmeComponent implements OnInit { 
 
 	bevList: Beverage[] = [];
 	submitted = false;
 	whoMessage: string = "";
+	showWho = false;
+	clicked = false;
 
   constructor(private service: VisitorService) { }
 
-  DeleteVisitor() {
-	localStorage.clear()
-	this.whoMessage = "Who were you again?"
-  }
+DeleteVisitor() {
+	this.service.DeleteVisitor();
+	this.whoMessage = "Got it. Who are you again?"
+	this.showWho = true;
+	this.clicked = true;
+}
 
-  welcomeFirst(){
+  who(){
 	if(localStorage.getItem('name') === null) {
 		this.submitted = false;
 	} else
 	this.submitted = true;
 }
 
+letMeTellYou(): void {
+	window.location.reload();
+}
+
   ngOnInit(): void {
-	this.welcomeFirst()
+	this.who()
   }
 
 }

@@ -1,4 +1,5 @@
 <div [hidden]="!submitted">
-	<button (click)="DeleteVisitor()">Forget Me!</button>
-	<br> <h2>{{ whoMessage }}</h2>
+	<button [hidden]="clicked" (click)="DeleteVisitor()" class="forgetMe">I was never here!</button>
+	<br> <h2>{{ whoMessage }}</h2> 
+	<button [hidden]="!showWho" (click)="letMeTellYou()">Let me tell you!</button>
 </div>

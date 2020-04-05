@@ -19,6 +19,8 @@ export class TheusualComponent implements OnInit {
 	beverageList=[]
 	submitted = false;
 	submittedd = false;
+	clicked = false; 
+	showThanks = false;
 
 	@Input() message: string;
 
@@ -26,7 +28,7 @@ export class TheusualComponent implements OnInit {
 
   getNameLS() {
 	this.model = JSON.parse(localStorage.getItem("name"))
-	this.lsName = "Welcome back " + this.model.firstName + " " + this.model.lastName 
+	this.lsName = "Hello again, " + this.model.firstName + " " + this.model.lastName + "! The usual?" 
 	console.log(this.lsName);	
 }
 
@@ -34,6 +36,12 @@ getDrinkLS() {
 	this.bevList = JSON.parse(localStorage.getItem("drink"))
 	this.lsDrink = "The usual " + this.bevList.drink + " coming right up!"
 	console.log(this.lsDrink);	
+	this.clicked = true; 
+	this.showThanks = true;
+}
+
+thanks(): void {
+	window.location.reload();
 }
 
 welcomeFirst(){
@@ -41,8 +49,8 @@ welcomeFirst(){
 	console.log(this.welFirst = "");
 	} else
 	this.submittedd = true;
-	console.log(this.welFirst = "The Usual?");
-	console.log(this.newDrink = "New Drink");
+	console.log(this.welFirst = "The Usual!");
+	console.log(this.newDrink = "New Drink!");
 }
 
 getBeverageList(){
@@ -62,6 +70,7 @@ getBeverageList(){
 
   toggle() {
 	this.submitted = !this.submitted;
+	this.clicked = true; 
 }
 
   ngOnInit(): void {

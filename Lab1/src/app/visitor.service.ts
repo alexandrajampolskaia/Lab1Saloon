@@ -12,7 +12,7 @@ export class VisitorService {
 		{drink: "Scotch"},
 		{drink: "Burbon"},
 	] 
-
+ 
 	getDrinksList(): Beverage[] {
 		return this.bevList;
 	}
@@ -34,6 +34,12 @@ export class VisitorService {
 	getDrinkLS(){
 		return JSON.parse(localStorage.getItem('drink'))
 	}
+
+	DeleteVisitor() {
+		localStorage.clear()
+	  }
+	
+
 	
 constructor() { } 
 

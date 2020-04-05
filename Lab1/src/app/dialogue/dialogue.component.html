@@ -34,15 +34,21 @@
 	  <app-beverage [message]="message" (choosenDrink)="handleTheSelected($event)" (onSaveDrink)="addNewDrink($event)"></app-beverage>
 	</div> 
 
+
 	<h3>{{ drinkWithText }}</h3>
 
-
+	 <button *ngIf="showThanks" (click)="thanks()">Thanks!</button>
+	
 	<app-theusual [message]="message" (choosenDrink)="handleTheSelected2($event)" (onSaveDrink)="addNewDrink($event)"></app-theusual> 
 
 
 	<h3>{{ newDrink }}</h3>
 
-	<app-forgetme></app-forgetme>
+	<button *ngIf="showThankss" (click)="thanks()">Thanks!</button>
+
+	
+
+	<!-- <app-forgetme></app-forgetme> -->
 
 	
   
