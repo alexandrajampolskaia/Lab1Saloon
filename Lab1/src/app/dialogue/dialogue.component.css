@@ -2,4 +2,5 @@ input[type=text] {
 	background-color: pink;
 	color: white;
 	border: none;
+	padding: 5px;
   }
