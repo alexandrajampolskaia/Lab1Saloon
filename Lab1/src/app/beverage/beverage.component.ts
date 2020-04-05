@@ -29,9 +29,6 @@ bevList=[];
 		console.log("Selected drink" + selectedChoise);
 	}
 
-	thanks(): void {
-		window.location.reload();
-	} 
 
 	bevListt: Beverage[]=[];
 	submitted = false;
