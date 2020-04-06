@@ -3,55 +3,49 @@ import { Beverage } from '../beverage';
 import { VisitorService } from '../visitor.service';
 
 @Component({
-  selector: 'app-beverage',
-  templateUrl: './beverage.component.html',
-  styleUrls: ['./beverage.component.css']
+	selector: 'app-beverage',
+	templateUrl: './beverage.component.html',
+	styleUrls: ['./beverage.component.css']
 })
 export class BeverageComponent implements OnInit {
-@Input() message: string;
-bev: Beverage; 
-bevList=[];
 
+	@Input() message: string;
 
-  constructor(private service: VisitorService) { }
+	bev: Beverage;
+	bevList = [];
 
-  getBeverageList(){
-	  this.bevList = this.service.getBeverageList();
-	  console.log(this.bevList + "hej");  
-  }
+	constructor(private service: VisitorService) { }
 
-  @Output() choosenDrink = new EventEmitter<Beverage>()
- 
-  
-	userChoice(selectedChoise){	
+	getBeverageList() {
+		this.bevList = this.service.getBeverageList();
+		console.log(this.bevList + "hej");
+	}
+
+	@Output() choosenDrink = new EventEmitter<Beverage>()
+
+	userChoice(selectedChoise) {
 		this.service.setSelectedDrink(selectedChoise)
 		this.choosenDrink.emit(selectedChoise)
 		console.log("Selected drink" + selectedChoise);
 	}
 
-
-	bevListt: Beverage[]=[];
+	bevListt: Beverage[] = [];
 	submitted = false;
-	
-	@Output() onSaveDrink = new EventEmitter<string>();
-	
-	//   constructor(private service: VisitorService) { }
-	
-	  //SKRIV IN BEV
-	  
-		inputValue: string = '';
-	
-		onKeyUp(event) {
-			this.inputValue = event.target.value;
-		}
-	
-		saveNewDrink() {
-			this.onSaveDrink.emit(this.inputValue);
-			this.submitted = true;
-		}
-  
-  ngOnInit(): void {
-	this.getBeverageList() 
-  }
 
+	@Output() onSaveDrink = new EventEmitter<string>();
+
+	//SKRIV IN BEV
+
+	inputValue: string = '';
+
+	onKeyUp(event) {
+		this.inputValue = event.target.value;
+	}
+	saveNewDrink() {
+		this.onSaveDrink.emit(this.inputValue);
+		this.submitted = true;
+	}
+	ngOnInit(): void {
+		this.getBeverageList()
+	}
 }

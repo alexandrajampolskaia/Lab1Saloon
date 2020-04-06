@@ -1,50 +1,39 @@
 import { Injectable } from '@angular/core';
-import { Name } from './name';
 import { Beverage } from './beverage';
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
-export class VisitorService {  
+export class VisitorService {
 
 	bevList: Beverage[] = [
-		{drink: "Whiskey"},
-		{drink: "Scotch"},
-		{drink: "Burbon"},
-	] 
- 
+		{ drink: "Whiskey" },
+		{ drink: "Scotch" },
+		{ drink: "Burbon" },
+	]
+
 	getDrinksList(): Beverage[] {
 		return this.bevList;
 	}
-
 	addNewDrink(drink) {
 		let drinkObject: Beverage = { drink };
-		this.bevList.push(drinkObject);	
+		this.bevList.push(drinkObject);
 	}
-
-	getBeverageList(){
+	getBeverageList() {
 		localStorage.setItem('bevList', JSON.stringify(this.bevList))
 		return JSON.parse(localStorage.getItem('bevList'))
 	}
-
-	setSelectedDrink(selectedChoise){
+	setSelectedDrink(selectedChoise) {
 		localStorage.setItem('drink', JSON.stringify(selectedChoise))
 	}
-
-	getDrinkLS(){
+	getDrinkLS() {
 		return JSON.parse(localStorage.getItem('drink'))
 	}
-
 	DeleteVisitor() {
 		localStorage.clear()
-	  }
-	
+	}
 
-	
-constructor() { } 
-
-
-
+	constructor() { }
 
 }
 
